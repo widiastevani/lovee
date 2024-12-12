@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romantic Book</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        background-color: #fff9e6;
+        margin: 0;
+        padding: 0;
+      }
+
+      .book-container {
+        perspective: 1000px;
+        margin: 50px auto;
+        width: 600px;
+        height: 400px;
+      }
+
+      .book {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+      }
+
+      .page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #fddcdc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .page img,
+      .page video {
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+
+      .page h2 {
+        margin: 10px;
+      }
+
+      .page:nth-child(even) {
+        transform: rotateY(180deg);
+      }
+
+      .buttons {
+        margin-top: 20px;
+      }
+
+      .buttons button {
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .buttons button:hover {
+        background-color: #ff4b4b;
+      }
+
+      footer {
+        margin-top: 20px;
+        font-size: 16px;
+        color: #b35c5c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="book-container">
+      <div class="book" id="book">
+        <div class="page" id="page-1">
+          <h2>Welcome to our love story</h2>
+          <p>Every page is filled with cherished memories and love for you.</p>
+        </div>
+
+        <div class="page" id="page-2">
+          <!-- <h2>Forever and always, I am yours.</h2>
+          <img src="your-image.jpg" alt="Beautiful Memory" /> -->
+        </div>
+
+        <div class="page" id="page-3">
+          <!-- <h2>Your beautiful smile lights up my world.</h2>
+          <video controls>
+            <source src="your-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video> -->
+        </div>
+
+        <div class="page" id="page-4">
+          <h2>
+            love you sayangku cintaku pacarku yang ganteng🫶, still love you
+            until now walaupun sayang ngeselin, aku juga ngeselin sih hehe maaf
+            yaa sayang banyak salah, sayang jangan nakall, jangan malas mandi,
+            bauuu🫢. Sayang semangat kuliahnyaa biar suksess nantiii, jangan
+            sering sering sayang ngejek orang yaa😒, awas aja kalo di ejek aku
+            krna bikin ginian ya😤
+          </h2>
+        </div>
+
+        <div class="page" id="page-5">
+          <h2>alooo sayangkuu❤️, hehehe lucuu kann</h2>
+          <!-- <img src="another-image.jpg" alt="Another Memory" /> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="prev">Previous</button>
+      <button id="next">Next</button>
+    </div>
+
+    <footer>sayang daniel banyak banyakk❤️</footer>
+
+    <script>
+      const book = document.getElementById("book");
+      const pages = document.querySelectorAll(".page");
+      let currentPage = 0;
+
+      document.getElementById("prev").addEventListener("click", () => {
+        if (currentPage > 0) {
+          currentPage--;
+          book.style.transform = `rotateY(${currentPage * -180}deg)`;
+        }
+      });
+
+      document.getElementById("next").addEventListener("click", () => {
+        if (currentPage < pages.length - 1) {
+          currentPage++;
+          book.style.transform = `rotateY(${currentPage * -180}deg)`;
+        }
+      });
+    </script>
+  </body>
+</html>
